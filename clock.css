@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    transition: 0.4s ease; 
+}
+:root {
+    --background-color: #241f1f;
+    /* input box size*/
+    --box-height: 205px;
+    /* time container */
+    --clock-box-height: 380px;
+    --time-display-text-color: rgb(126, 255, 109);
+    --time-clock-shadow: rgb(38, 83, 230);
+    /* quote text*/
+    --quote-font-size: 3.5rem;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+}
+.Main-container  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 16vh;
+    padding: 10px;
+}
+.Main-container header {
+    color: white;
+    font-weight: bold;
+    font-size: 2.8rem;
+    font-family: monospace;
+}
+.Main-container .Time-clock-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Time-clock-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--clock-box-height);
+    width: calc(var(--clock-box-height) * 1.4);
+}
+.Time-clock-display div {
+    height: var(--box-height);
+    width: calc(var(--box-height) * 1.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 3.0rem;
+}
+.time-and-date-display {
+    border: 2px solid greenyellow;
+    background-color: rgba(10, 27, 43, 0.979);
+    border-radius: 10px;
+    color: rgb(93, 248, 72);
+    font-family: monospace;
+    text-shadow: 0px 0px 16px var(--time-display-text-color);
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 23px 0.9px var(--time-clock-shadow);
+}
+
+.time-and-date-display #date-text  {
+    font-size: 1.8rem;
+    margin: 7px;
+}
+.Main-container i {
+    font-size: 1.9rem;
+    color: white;
+    font-family: monospace;
+}
+.Main-container i:before {
+    content: "\0022";
+    position: relative;
+    top: 0px;
+    left: -2px;
+    display: inline-block;
+    font-size: var(--quote-font-size);
+    color: orange;
+    font-weight: bold;
+}
+.Main-container i:after {
+    content: "\0022";
+    position: relative;
+    top: 0px;
+    left: -2px;
+    display: inline-block;
+    font-size: var(--quote-font-size);
+    color: rgb(255, 172, 18);
+    font-weight: bold;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="1"> 
+    <title>Time-clock</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+<body>
+
+    <main class="Main-container">
+        <header id="heading">Real time clock</header>
+        <div class="Time-clock-display">
+            <div class="time-and-date-display">
+                <span id="time-text"></span><br>
+                <span id="date-text"></span><br>
+            </div>
+        </div>
+        <i id="words-of-day"></i>
+    </main>
+
+    <script>
+        const QuotesDisplay = document.querySelector('#words-of-day');
+        const displayText = document.querySelector('#heading');
+        const timeText = document.querySelector('#time-text');
+        const dateText = document.querySelector('#date-text');
+
+        const date = new Date();  // date object
+        const dateString = date.toDateString();  
+        // generating a string formatted date
+        const timeString = date.toString().split(" ")[4];  // string tokenization
+        const hourValue = Number(timeString[0]+timeString[1]);
+
+        timeText.innerText = `${timeString}`;
+        dateText.innerText = `${dateString}`;
+
+        /* weekly quotes object */
+        const wordsOftheDays = {
+            Sunday: "Hope your having a fantastic holiday!",
+            Monday: "Monday's not a boring day, it was just created by humans,<br>but all days are the same, so Find your purpose to enjoy it",
+            Tuesday: "Keep going, trust the process, You got this",
+            Wednesday: "Imagination will often carry us to the worlds that never were.<br>But without it you go nowhere.",
+            Thursday: "Thursday's rhythm echoes the steady pulse of nature.<br>May your work flow smoothly and effortlessly",
+            Friday: "Friday arrives with the promise of a weekend retreat into nature's embrace.<br>Finish your work strong and savor the beauty around you.",
+            Saturday: "Saturday's sun invites you to recharge amidst the wonders of nature,<br>so you can return to work on Monday with renewed energy and perspective."
+        };
+
+        /* ocassion texts!*/
+        const displaySpecialText = () => {
+            if (dateString[1] === 'Jan' && dateString[2] === '1')  {
+                displayText.innerText = 'Wish you a Happy New Year';
+                displayText.style.textshadow = '0px 0px 4px #ccc';
+                QuotesDisplay.style.innerHTML = "A new year is also a new opportunity to learn!"
+            } 
+            else {
+                displayText.innerText = 'Real time clock';
+            }
+        };
+
+        const weeklyMotivation_quotes = () => {
+            const dayOfWeek = dateString.split(" ")[0];
+            switch(dayOfWeek)  {
+                case 'Sun':
+                    QuotesDisplay.innerHTML = `${wordsOftheDays.Sunday}`;
+                    break;
+                case 'Mon':
+                    QuotesDisplay.innerHTML = `${wordsOftheDays.Monday}`;
+                    break;
+                case 'Tue':
+                    QuotesDisplay.innerHTML = `${wordsOftheDays.Tuesday}`;
+                    break;
+                case 'Wed': 
+                    QuotesDisplay.innerHTML = `${wordsOftheDays.Wednesday}`;
+                    break;
+                case 'Thu':
+                    QuotesDisplay.innerHTML = `${wordsOftheDays.Thursday}`;
+                    break;
+                case 'Fri':
+                    QuotesDisplay.innerHTML = `${wordsOftheDays.Friday}`;
+                    break;
+                case 'Sat':
+                    QuotesDisplay.innerHTML = `${wordsOftheDays.Saturday}`;
+            }
+        }
+
+        displaySpecialText();
+        /* calling the function to display quotes for every week*/
+        weeklyMotivation_quotes();
+
+    </script>
+</body>
+</html>
