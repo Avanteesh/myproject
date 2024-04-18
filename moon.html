@@ -1,0 +1,93 @@
+<!-- 
+A web page to check the current moon phase    
+Moon.html
+javascript: moon.js
+css: moon.css
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="moon.css" rel="stylesheet">
+    <title>Moon phases display app</title>
+</head>
+<body>
+    <main class="Container">
+        <dialog class="location-searcher">
+            <p>Enter the desired location you want.<i class="bi bi-geo-fill"></i></p>
+                <input class="location-searching-input" type="text" placeholder="enter location (city, country)..">
+                <div class="buttons">
+                    <button class="submit-button">submit</button> <!--Confirm search button-->
+                    <button class="cancel-button">cancel</button>
+                </div>
+        </dialog>
+        <!--Header section -->
+        <div class="Header-section">
+            <header>Moon phases in realtime</header>
+            <div class="location-info">
+                <div class="location-inner-Content" id="display-info">
+                    <span>
+                        <i class="bi bi-geo-alt-fill"></i><p class="location-text" style="font-size: 1.2rem;">select a location</p>
+                    </span>
+                    <span>
+                        latitude <p class="latitude-text">00.000</p>
+                    </span>
+                    <span>
+                        longitude <p class="longitude-text">00.000</p>
+                    </span>
+                </div>
+                <div class="location-inner-Content" id="search-button">
+                    <button class="get-info-from-mylocation">
+                        <i class="bi bi-search"></i>Click here to Seach
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--moon-section-div-->
+        <div class="Moon-section">
+            <span class="time-display">
+                <i class="bi bi-clock-fill"></i><p class="time-text">HH:MM</p>
+            </span>
+            <div class="Moon-display">
+                <!--Section to display phases of moon-->
+                <div class="display-section" id="image-viewer-and-phase-name">
+                    <span class="moon-image">🌕</span>
+                    <div>
+                        <p class="moon-phase-name">full moon</p>
+                    </div>
+                </div>
+                <!--@@-->
+                <div class="display-section" id="info-on-moon">
+                    <span>
+                        <header>Today's Data<i class="bi bi-moon-fill"></i></header>
+                    </span>
+                    <span>
+                        Illumination:<p class="moon-phase-display-text">100%</p>
+                    </span>
+                    <span>
+                        Date: <p class="date-text">yyyy-mm-dd</p>
+                    </span>
+                    <span>
+                        Moonrise:<p class="moon-rise-time-text">06:00 pm</p>
+                    </span>
+                    <span>
+                        Moonset: <p class="moon-set-time-text">5:45 am</p>
+                    </span>
+                    <span>
+                        <i class="bi bi-sunrise"></i>Sunrise: <p class="sun-rise-time-text">6:00 am</p>
+                    </span>
+                    <span>
+                        <i class="bi bi-sunset"></i>Sunset: <p class="sun-set-time-text">6:10 pm</p>
+                    </span>
+                </div>
+            </div>
+            <!--moon-display-end-->
+        <!--moon-section-end-->
+        </div>
+        <!--main-end-->
+    </main>
+
+    <script src="moon.js"></script>
+</body>
+</html>

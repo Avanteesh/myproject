@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: white;
+    user-select: none;
+    transition: 1s;
+}
+
+:root {
+    --dialog-pop-height: 240px;
+    /* input box and button */
+    --enter-location-box-height: 40px;
+    --search-button-height: 30px;
+    --button-color: linear-gradient(rgb(225, 180, 69),
+            rgb(255, 200, 47), rgb(255, 180, 69));
+    --button-color-hover-state: linear-gradient(rgb(225, 180, 69),
+            rgb(255, 211, 89), rgb(255, 180, 69));
+    --cancel-search: linear-gradient(rgb(207, 16, 16),
+            rgb(255, 62, 62), rgb(207, 16, 16));
+    --cancel-button-hover-state: linear-gradient(rgb(207, 16, 16),
+            rgb(255, 81, 81), rgb(207, 16, 16));
+    /* location-info-dix*/
+    --font-size-one: 1.3rem;
+    --button-text-color: #000;
+    --search-button-color: linear-gradient(rgb(63, 155, 79),
+            rgb(102, 240, 102), rgb(51, 136, 51));
+    --search-button-color-hover-state: linear-gradient(rgb(77, 184, 95),
+            rgb(131, 255, 131), rgb(70, 172, 70));
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-image: url(background.png);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.Container {
+    display: grid;
+    place-items: center;
+    margin-top: 5vh;
+    padding: 20px;
+}
+
+/* dialog box*/
+.Container .location-searcher {
+    position: fixed;
+    display: none;
+    /* display: grid, when block line element */
+    opacity: 0;
+    place-items: center;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    height: var(--dialog-pop-height);
+    width: calc(var(--dialog-pop-height) * 2);
+    border-radius: 14px;
+    box-shadow: 0px 0px 12px 0.9px #fff;
+}
+.location-searcher p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: black;
+    user-select: none;
+}
+
+.location-searcher p i {
+    color: red;
+    font-size: 1.8rem;
+}
+
+.location-searcher input {
+    color: black;
+    font-size: 1.1rem;
+    height: var(--enter-location-box-height);
+    width: calc(var(--enter-location-box-height)*8);
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 4px solid rgb(59, 233, 59);
+}
+
+.location-searcher input:focus {
+    outline: none;
+}
+
+.location-searcher .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.location-searcher .buttons button {
+    height: var(--search-button-height);
+    width: calc(var(--search-button-height)*3);
+    margin: 12px;
+    color: #000;
+    border: none;
+}
+.buttons .submit-button {
+    background: var(--button-color);
+}
+
+.submit-button:hover {
+    cursor: pointer;
+    background: var(--button-color-hover-state);
+}
+
+.buttons .cancel-button {
+    background: var(--cancel-search);
+    color: #fff;
+}
+.cancel-button:hover {
+    cursor: pointer;
+    background: var(--cancel-button-hover-state);
+}
+
+/* header section */
+.Container .Header-section {
+    padding: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.Header-section header {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: -1px -1px 21px #fff;
+}
+
+.Header-section .location-info {
+    display: flex;
+    margin: 20px 20%;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.location-inner-Content {
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+}
+
+.location-inner-Content span {
+    display: flex;
+    flex-direction: row;
+    font-size: var(--font-size-one);
+    font-weight: 400;
+}
+
+.location-info span i {
+    color: rgb(255, 56, 56);
+    font-size: calc(var(--font-size-one) + 0.5rem);
+}
+
+.location-info span p {
+    margin-left: 10px;
+    font-weight: bold;
+    text-shadow: -1px -1px 4px #ccc;
+}
+
+#search-button button {
+    --height: 40px;
+    height: var(--height);
+    width: calc(var(--height) * 4.5);
+    background: var(--search-button-color);
+    color: var(--button-text-color);
+    font-weight: 600;
+    border: none;
+    border-radius: 15px;
+}
+
+#search-button button:hover {
+    background: var(--search-button-color-hover-state);
+    cursor: pointer;
+}
+
+#search-button button i {
+    color: var(--button-text-color);
+    font-weight: bolder;
+}
+
+/* moon section */
+.Container .Moon-section {
+    padding: 10px;
+}
+
+.Container .Moon-section .time-display {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.6rem;
+    justify-content: center;
+}
+
+.Moon-section .time-display p {
+    margin-left: 5px;
+    text-shadow: 0px 0px 5px #fff;
+    font-weight: 700;
+}
+
+.Moon-section .Moon-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.Moon-display .display-section {
+    display: grid;
+    place-items: center;
+    margin: auto;
+    padding: 15px;
+}
+
+.Moon-display #image-viewer-and-phase-name .moon-image {
+    font-size: 11.5rem;
+    text-shadow: 0px 0px 26px #fff;
+}
+
+.Moon-display #image-viewer-and-phase-name div {
+    display: grid;
+    place-items: center;
+    font-size: 2.0rem;
+    font-weight: 800;
+    color: rgb(250, 250, 61);
+}
+
+.Moon-display #info-on-moon {
+    display: grid;
+    place-items: center;
+    padding: 30px;
+}
+
+#info-on-moon span > header {
+    font-size: 1.9rem;
+    text-decoration: 3px solid underline;
+    margin: 20px;
+    font-weight: bold;
+}
+
+#info-on-moon span>header i {
+    margin-left: 10px;
+    font-size: 2.1rem;
+    color: rgb(255, 255, 120);
+}
+
+#info-on-moon span {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3rem;
+    text-shadow: 0px 0px 5px #ccc;
+}
+
+#info-on-moon span p {
+    font-weight: bold;
+    margin-left: 16px;
+}
